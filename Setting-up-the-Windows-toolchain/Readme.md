@@ -95,8 +95,8 @@ This is, strictly speaking, all you need to do to set up the build-chain.  Howev
 * Open a Developer Console Command Prompt for VS2022 again (NOTE: I had to run this next step as an admin, otherwise I got an access denied error)
   * In the Start Menu, go to Visual Studio 2022 > Developer Command Prompt for VS2022 
 * In that prompt, type “code”.  This will load VSCode up.
-* Click on the Extensions button to the left-hand side ![Extensions icon](https://github.com/UnfinishedStuff/Pico_C_development/blob/main/Extensions.jpg?raw=true), and search for and install `CMake Tools`
-* Click on the cogwheel in the bottom left ![Settings Button](https://github.com/UnfinishedStuff/Pico_C_development/blob/main/Seettings.jpg?raw=true) and select Settings.  In the window which opens select Extensions and then CMake Tools.  Scroll down to the section titled `Cmake: Configure environment`.  Click the blue `Add New` button, and in the Item box type `PICO_SDK_PATH`, in Value type `..\..\pico-sdk`
+* Click on the Extensions button to the left-hand side ![Extensions icon](https://raw.githubusercontent.com/UnfinishedStuff/C-Development-for-Raspberry-Pi-Pico/main/Setting-up-the-Windows-toolchain/Extensions.jpg?token=GHSAT0AAAAAAB4LJFJDOPP5D67ONJSTB7XQY4Y5V6Q), and search for and install `CMake Tools`
+* Click on the cogwheel in the bottom left ![Settings Button](https://raw.githubusercontent.com/UnfinishedStuff/C-Development-for-Raspberry-Pi-Pico/main/Setting-up-the-Windows-toolchain/Settings.jpg?token=GHSAT0AAAAAAB4LJFJDWDA63GGVCFLVFJPSY4Y5V7Q) and select Settings.  In the window which opens select Extensions and then CMake Tools.  Scroll down to the section titled `Cmake: Configure environment`.  Click the blue `Add New` button, and in the Item box type `PICO_SDK_PATH`, in Value type `..\..\pico-sdk`
 * Continue scrolling down to the section called `Cmake:Generator`, and type `NMake Makefiles` into the box.  Close the settings window.
 * Go to File > Open Folder, find and select the `pico-examples` folder, and click “Open Folder”.  If needed, click “Yes, I trust the authors” on the security popup.
 *	A little message will pop up in the bottom-right of VSCode asking if you’d like to configure the project.  Click Yes, and in the drop-down list which appears at the top, select `GCC [version no.] arm-none-eabi`
@@ -119,7 +119,7 @@ This part, more than any, seems to be fragile and has a tendency to throw errors
 * You'll then need to wire your Picoprobe board to the board you want to run code on as per Appendix A in the *Getting Started with Raspberry Pi Pico* document.
 
 <p align="center">
-<img src="https://github.com/UnfinishedStuff/Pico_C_development/blob/main/Picoprobe_wiring.jpg" width="600" height="379">
+<img src="https://raw.githubusercontent.com/UnfinishedStuff/C-Development-for-Raspberry-Pi-Pico/main/Setting-up-the-Windows-toolchain/Picoprobe_wiring.jpg?token=GHSAT0AAAAAAB4LJFJCBK4MQFBNUQG5DYYQY4Y5V7A" width="600" height="379">
 </p>
  
 * Next, we need a program called OpenOCD.  The *Getting started with Raspberry Pi Pico* doc explains how to compile this.  However, it's a bit fiddly, seems to go wrong quite often, and isn't actually necessary: Shaun Hymel wrote a very nice [Picoprobe with VSCode guide here](https://www.digikey.bg/en/maker/projects/raspberry-pi-pico-and-rp2040-cc-part-2-debugging-with-vs-code/470abc7efb07432b82c95f6f67f184c0), and as part of that he has a pre-compiled version of OpenOCD with some other files which are required.  Scroll down to the *Build OpenOCD* section just below the wiring diagram, look for the Windows guide, and download the executable and .dll files Shaun has available there.  Unzipping these should create two folders, one called `tcl` and once called `src`.  Copy these to a folder called `openocd` in the `pico` directory, alongside `pico-examples` and `pico-sdk`.  
