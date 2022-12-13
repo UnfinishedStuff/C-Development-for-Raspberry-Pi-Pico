@@ -133,15 +133,16 @@ This part, more than any, seems to be fragile and has a tendency to throw errors
 * Press `Control-Shift-D` on your keyboard to open up the debug pane.
 * Next, we need to sort-of follow section 7.3. *Debugging a Project* in the *Getting Started* guide:
   * In the `pico-examples` directory, make a directory called `.vscode`
-  * In that directory, make a file called `launch.json`.  The *Getting Started* PDF has an example of what should be in here in Section 7.3, but I've made a few changes to get it working.  Get the code from here:
-    * [https://github.com/raspberrypi/pico-examples/blob/master/ide/vscode/launch-raspberrypi-swd.json](https://github.com/UnfinishedStuff/Pico_C_development/blob/main/launch.json)
+  * In that directory, make a file called `launch.json`.  The *Getting Started* PDF has an example of what should be in here in Section 7.3, but I've made a few changes to get it working.
+    * [Get the launch.json template from here](https://github.com/UnfinishedStuff/C-Development-for-Raspberry-Pi-Pico/blob/main/Setting-up-the-Windows-toolchain/launch.json)
     * `gdbPath` was changed from `gdb-multiarch` to `arm-none-eabi-gdb`
     * In the `configFiles` section, `"interface/raspberrypi-swd.cfg"` was changed to `"interface/picoprobe.cfg"` as we're using a Picoprobe for this, not a Raspberry Pi single board computer.
     * `runToMain` was changed from `true` to `false`.  This seemed to cause the board to stop with a break point at `main()`, rather than run straight into running the program after it was uploaded to the Pico.
     * The `"postRestartCommands"` section was also removed for the same reason.  The comments in the original `launch.json` file says that this section should *prevent* the program stopping at `main()`, but that's not what I've observed it doing.
     * `"searchDir": ["C:/Users/UnfinishedStuff/Desktop/pico/openocd/tcl"]` was added.  You should point this to the `tcl` folder you downloaded and unzipped from Shaun Hymel's tutorial earlier.
-  * In the `.vscode` directory, make a file called `settings.json`.  Again, *Getting Started* has an example and this time I've made no changes.  Get the file from here:
-    * https://github.com/UnfinishedStuff/Pico_C_development/blob/main/settings.json
+  * In the `.vscode` directory, make a file called `settings.json`.  Again, *Getting Started* has an example and this time I've made no changes.  
+    * [Get the settings.json template from here](https://github.com/UnfinishedStuff/C-Development-for-Raspberry-Pi-Pico/blob/main/Setting-up-the-Windows-toolchain/settings.json)
+
 * Finally, you *may* need to set the USB driver for the Picoprobe device.  The *Getting Started* guide says that this was required in older versions of Picoprobe but isn't needed anymore.  However, when I did this in December 2022 I still needed to set the USB driver.
   * Download Zadig from here: https://zadig.akeo.ie/
   * Run the program.  If you can't see a device called `Picoprobe (Interface 2)` in the drop-down menu, click Options > List All Devices.  Click on `Picoprobe (Interface 2)`.  The driver on the left of the green arrow is what is currently installed, the right shows what Zadig will install.  Change the right-hand box to `WinUSB [version number]` and click Reinstall Driver.  It may take some time to update.
