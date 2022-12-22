@@ -5,3 +5,4 @@
 | Day | Components in the box | Programs to go with these |
 | :-- | :-- | :-- |
 | [Day 1](https://github.com/UnfinishedStuff/C-Development-for-Raspberry-Pi-Pico/tree/main/Maker_Advent_Calendar/Day1) | <details><summary>Spoilers!</summary> A Pico H, a breadboard, and a Micro USB module</details> | <details><summary>Spoilers!</summary>`day1_blinky` and `day1_hello_world`</details> |
+| [Day 2](https://github.com/UnfinishedStuff/C-Development-for-Raspberry-Pi-Pico/tree/main/Maker_Advent_Calendar/Day2) | <details><summary>Spoilers!</summary> A red, amber, and green 5 mm through-hole LED, 3x330 Ohm through-hole resistors, and four male-to-male jumper wires</details> | <details><summary>Spoilers!</summary>`day2_triple_blink`, `day2_counter_blink`, and `day2_sequence_blink`</details>
